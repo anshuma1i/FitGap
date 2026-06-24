@@ -491,30 +491,6 @@ def _inject_theme() -> None:
             border-radius: 8px;
         }
 
-        .sidebar-toggle-btn {
-            position: fixed;
-            top: 0.85rem;
-            left: 0.85rem;
-            z-index: 999;
-            background: var(--fg-graphite);
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            border-radius: 8px;
-            color: #edf5f4;
-            cursor: pointer;
-            font-size: 1.1rem;
-            height: 2.25rem;
-            width: 2.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.15s, border-color 0.15s;
-        }
-        .sidebar-toggle-btn:hover {
-            background: #0f171f;
-            border-color: var(--fg-accent);
-            color: #ffffff;
-        }
-
         @media (max-width: 820px) {
             .status-strip,
             .score-grid,
@@ -649,22 +625,6 @@ def _render_results_header(result_count: int, alpha: float) -> None:
 
 
 _inject_theme()
-
-# Floating button that programmatically clicks Streamlit's hidden
-# sidebar-toggle button so users can always open/close the sidebar.
-st.markdown(
-    """
-    <button class="sidebar-toggle-btn" onclick="
-      (function(){
-        var btn = window.parent.document.querySelector(
-          '[data-testid=\"stSidebar\"] button[data-testid=\"baseButton-header\"]'
-        );
-        if(btn) btn.click();
-      })();
-    " title="Toggle sidebar">☰</button>
-    """,
-    unsafe_allow_html=True,
-)
 
 st.markdown(
     '<div class="app-head">'
