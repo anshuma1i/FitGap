@@ -54,6 +54,19 @@ def _inject_theme() -> None:
             box-shadow: none;
         }
 
+        /* Always-visible sidebar toggle button — the built-in Streamlit
+           arrow blends into the background when the sidebar is collapsed. */
+        [data-testid="baseButton-header"] {
+            background: rgba(23, 33, 43, 0.78) !important;
+            backdrop-filter: blur(6px);
+            border-radius: 0 8px 8px 0 !important;
+            color: #ffffff !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+        }
+        [data-testid="baseButton-header"]:hover {
+            background: rgba(23, 33, 43, 0.92) !important;
+        }
+
         [data-testid="stToolbar"],
         [data-testid="stDecoration"] {
             display: none;
